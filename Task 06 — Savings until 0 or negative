@@ -1,0 +1,27 @@
+#include <stdio.h>
+
+int main()
+{
+    float amount;
+    float totalSavings = 0;
+    int deposits = 0;
+
+    while(1)
+    {
+        printf("Enter amount saved: ");
+        scanf("%f", &amount);
+
+        if(amount <= 0)
+        {
+            break;
+        }
+
+        totalSavings = totalSavings + amount;
+        deposits++;
+    }
+
+    printf("\nTotal savings = %.2f\n", totalSavings);
+    printf("Number of deposits = %d\n", deposits);
+
+    return 0;
+}
