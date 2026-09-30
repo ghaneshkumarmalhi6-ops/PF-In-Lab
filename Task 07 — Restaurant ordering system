@@ -1,0 +1,31 @@
+#include <stdio.h>
+
+int main()
+{
+    char food[50];
+    float price;
+    float totalBill = 0;
+    int items = 0;
+    int choice;
+
+    do
+    {
+        printf("Enter food item: ");
+        scanf(" %[^\n]", food);
+
+        printf("Enter price: ");
+        scanf("%f", &price);
+
+        totalBill = totalBill + price;
+        items++;
+
+        printf("Do you want to order another item? (1 = Yes, 0 = No): ");
+        scanf("%d", &choice);
+
+    } while(choice == 1);
+
+    printf("\nTotal bill = %.2f\n", totalBill);
+    printf("Number of items ordered = %d\n", items);
+
+    return 0;
+}
