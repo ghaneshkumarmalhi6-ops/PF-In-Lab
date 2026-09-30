@@ -1,0 +1,26 @@
+#include <stdio.h>
+
+int main()
+{
+    int marks;
+    int choice;
+    int count = 0;
+
+    do
+    {
+        printf("Enter marks of student: ");
+        scanf("%d", &marks);
+
+        printf("Marks entered: %d\n", marks);
+
+        count++;
+
+        printf("Do you want to enter another student? (1 = Yes, 0 = No): ");
+        scanf("%d", &choice);
+
+    } while(choice == 1);
+
+    printf("\nTotal number of students = %d\n", count);
+
+    return 0;
+}
