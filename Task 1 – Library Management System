@@ -1,0 +1,66 @@
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int *regNumbers;
+    int n, extra, i;
+
+    printf("Enter number of initial students: ");
+    scanf("%d", &n);
+
+    regNumbers = (int *)malloc(n * sizeof(int));
+
+    if (regNumbers == NULL)
+    {
+        printf("Memory allocation failed!");
+        return 1;
+    }
+
+    printf("\nEnter registration numbers:\n");
+
+    for (i = 0; i < n; i++)
+    {
+        printf("Student %d: ", i + 1);
+        scanf("%d", &regNumbers[i]);
+    }
+
+    printf("\nRegistration numbers after first phase:\n");
+
+    for (i = 0; i < n; i++)
+    {
+        printf("%d ", regNumbers[i]);
+    }
+
+    printf("\n\nEnter number of additional students: ");
+    scanf("%d", &extra);
+
+    regNumbers = (int *)realloc(regNumbers,
+                         (n + extra) * sizeof(int));
+
+    if (regNumbers == NULL)
+    {
+        printf("Memory reallocation failed!");
+        return 1;
+    }
+
+    printf("\nEnter additional registration numbers:\n");
+
+    for (i = n; i < n + extra; i++)
+    {
+        printf("Student %d: ", i + 1);
+        scanf("%d", &regNumbers[i]);
+    }
+
+    printf("\nAll student registration numbers:\n");
+
+    for (i = 0; i < n + extra; i++)
+    {
+        printf("%d\n", regNumbers[i]);
+    }
+
+    free(regNumbers);
+
+    return 0;
+}
